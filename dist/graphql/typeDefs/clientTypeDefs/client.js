@@ -13,5 +13,16 @@ const clientTypeDefs = `#graphql
         client(clientId: ID!): Client
     }
 
+    type Mutation {
+        addClient(input: newClientInput): Client!
+        deleteClient(cliendId: ID!): Client
+    }
+
+    input newClientInput {
+        name: String!
+        email: String!
+        phone: String!
+    }
+
 `;
 exports.default = clientTypeDefs;

@@ -40,10 +40,20 @@ const clients = async (_) => {
 const client = async (_, { clientId }) => {
     return await services.getClientById(clientId);
 };
+const addClient = async (_, { input }) => {
+    return await services.addNewClient(input);
+};
+const deleteClient = async (_, { cliendId }) => {
+    return services.findClientAndDelete(cliendId);
+};
 const clientResolvers = {
     Query: {
         clients,
         client,
     },
+    Mutation: {
+        addClient,
+        deleteClient
+    }
 };
 exports.default = clientResolvers;

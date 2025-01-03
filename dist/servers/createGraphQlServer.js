@@ -8,6 +8,7 @@ const express4_1 = require("@apollo/server/express4");
 const drainHttpServer_1 = require("@apollo/server/plugin/drainHttpServer");
 const cors_1 = __importDefault(require("cors"));
 const express_1 = require("express");
+const formError_1 = __importDefault(require("./formError"));
 const context = ({ req }) => {
     const token = req.headers.token;
     const user = req.user;
@@ -16,6 +17,7 @@ const context = ({ req }) => {
 const createGraghqlServer = async ({ app, schema, httpServer }) => {
     const server = new server_1.ApolloServer({
         schema,
+        formatError: formError_1.default,
         plugins: [(0, drainHttpServer_1.ApolloServerPluginDrainHttpServer)({ httpServer })],
     });
     await server.start();
