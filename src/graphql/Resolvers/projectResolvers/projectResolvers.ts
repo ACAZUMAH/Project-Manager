@@ -1,25 +1,43 @@
-import { projects, clients } from "../../../models/schema/sample";
+import * as services from '../../../services/projects/index';
+import { getClientById } from '../../../services/clients';
 import { project } from "../../../services/types";
 
-const Projects = (_:any) => {
-    return projects;
+const addProject = async (_: any, { input }) => {
+    return services.addNewProject(input);
 };
 
-const project = (_: any, { projectId } ) => {
-    return projects.find(project => project.id === projectId);
+const updateProject = async (_:any, { input }) => {
+    return services.updateProject(input)
 };
 
-const client = (project: project, ) => {
-    return clients.find(client => client.id === project.clientId);
+const projects = async (_:any) =>{
+    return await services.getAllProjects();
+};
+
+const project = async (_: any, { projectId } ) => {
+    return await services.getProjectById(projectId);
+};
+
+const deleteProject = async (_: any, { projectId }) => {
+    return services.deleteProject(projectId);
+}
+
+const client = async (parent: project) =>{
+    return await getClientById(parent.clientId);
 };
 
 const projectResolvers = {
     Query: {
-        Projects,
+        projects,
         project,
     },
     Project: {
         client
+    },
+    Mutation: {
+        addProject,
+        updateProject,
+        deleteProject
     }
 };
 

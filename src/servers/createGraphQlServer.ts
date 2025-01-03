@@ -6,6 +6,7 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import cors from "cors";
 import { contextType } from "../services/types";
 import { json } from "express";
+import formatError from "./formError";
 
 const context: ContextFunction<[ExpressContextFunctionArgument], contextType> = ({ req }): Promise<contextType> => {
   const token = req.headers.token;
@@ -18,6 +19,7 @@ const context: ContextFunction<[ExpressContextFunctionArgument], contextType> = 
 const createGraghqlServer = async ({ app, schema, httpServer }) => {
   const server = new ApolloServer<contextType>({
     schema,
+    formatError,
     plugins: [ApolloServerPluginDrainHttpServer({ httpServer })],
   });
 
