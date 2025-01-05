@@ -7,13 +7,13 @@ const clientTypeDefs = `#graphql
     }
 
     type Query {
-        clients: [Client!]
-        client(clientId: ID!): Client
+        Clients: [Client!]
+        Client(clientId: ID!): Client
     }
 
     type Mutation {
-        addClient(input: newClientInput): Client!
-        deleteClient(cliendId: ID!): Client
+        AddClient(input: newClientInput): Client!
+        DeleteClient(clientId: ID!): Client
     }
 
     input newClientInput {

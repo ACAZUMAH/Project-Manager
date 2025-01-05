@@ -1,29 +1,29 @@
 import * as services from '../../../services/clients/index'
 
-const clients = async (_: any, ) => {
+const Clients = async (_: any, ) => {
     return await services.getAllClients()
 };
 
-const client = async (_: any, { clientId }) => {
+const Client = async (_: any, { clientId }) => {
   return await services.getClientById(clientId)
 };
 
-const addClient = async (_: any, { input }) => {
+const AddClient = async (_: any, { input }) => {
   return await services.addNewClient(input);
 };
 
-const deleteClient = async (_:any, { cliendId } ) => {
-  return services.findClientAndDelete(cliendId);
+const DeleteClient = async (_:any, { clientId } ) => {
+  return services.findClientAndDelete(clientId);
 };
 
 const clientResolvers = {
   Query: {
-    clients,
-    client,
+    Clients,
+    Client,
   },
   Mutation: {
-    addClient,
-    deleteClient
+    AddClient,
+    DeleteClient
   }
 };
 

@@ -6,7 +6,7 @@ import { ApolloServerPluginDrainHttpServer } from "@apollo/server/plugin/drainHt
 import cors from "cors";
 import { contextType } from "../services/types";
 import { json } from "express";
-import formatError from "./formError";
+import formatError from "./formatError";
 
 const context: ContextFunction<[ExpressContextFunctionArgument], contextType> = ({ req }): Promise<contextType> => {
   const token = req.headers.token;

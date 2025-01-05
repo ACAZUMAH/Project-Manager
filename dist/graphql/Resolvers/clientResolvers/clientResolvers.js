@@ -34,26 +34,26 @@ var __importStar = (this && this.__importStar) || (function () {
 })();
 Object.defineProperty(exports, "__esModule", { value: true });
 const services = __importStar(require("../../../services/clients/index"));
-const clients = async (_) => {
+const Clients = async (_) => {
     return await services.getAllClients();
 };
-const client = async (_, { clientId }) => {
+const Client = async (_, { clientId }) => {
     return await services.getClientById(clientId);
 };
-const addClient = async (_, { input }) => {
+const AddClient = async (_, { input }) => {
     return await services.addNewClient(input);
 };
-const deleteClient = async (_, { cliendId }) => {
-    return services.findClientAndDelete(cliendId);
+const DeleteClient = async (_, { clientId }) => {
+    return services.findClientAndDelete(clientId);
 };
 const clientResolvers = {
     Query: {
-        clients,
-        client,
+        Clients,
+        Client,
     },
     Mutation: {
-        addClient,
-        deleteClient
+        AddClient,
+        DeleteClient
     }
 };
 exports.default = clientResolvers;

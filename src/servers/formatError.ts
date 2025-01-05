@@ -9,6 +9,7 @@ const STATUS_CODES = new Map<number, string>([
 ])
 
 const formatError = (formattedError: GraphQLError, error: unknown) => {
+    console.log(error);
     const originalError = unwrapResolverError(error);
     if(!(originalError instanceof createError.HttpError)){
         return formattedError;

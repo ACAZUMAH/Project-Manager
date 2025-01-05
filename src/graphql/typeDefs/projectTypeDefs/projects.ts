@@ -15,14 +15,14 @@ const projectsTypeDefs = `#graphql
     }
 
     type Query {
-        projects: [Project!]
-        project(projectId: ID!): Project!
+        Projects: [Project!]
+        Project(projectId: ID!): Project!
     }
 
     type Mutation {
-        addProject(input: newProjectInput): Project
-        updateProject(input: updateProjectInput ): Project
-        deleteProject(projectId: ID!): Project
+        AddProject(input: newProjectInput): Project
+        UpdateProject(input: updateProjectInput ): Project
+        DeleteProject(projectId: ID!): Project
     }
 
     input newProjectInput {

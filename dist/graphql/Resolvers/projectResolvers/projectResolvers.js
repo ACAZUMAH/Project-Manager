@@ -35,19 +35,19 @@ var __importStar = (this && this.__importStar) || (function () {
 Object.defineProperty(exports, "__esModule", { value: true });
 const services = __importStar(require("../../../services/projects/index"));
 const clients_1 = require("../../../services/clients");
-const addProject = async (_, { input }) => {
+const AddProject = async (_, { input }) => {
     return services.addNewProject(input);
 };
-const updateProject = async (_, { input }) => {
+const UpdateProject = async (_, { input }) => {
     return services.updateProject(input);
 };
-const projects = async (_) => {
+const Projects = async (_) => {
     return await services.getAllProjects();
 };
-const project = async (_, { projectId }) => {
+const Project = async (_, { projectId }) => {
     return await services.getProjectById(projectId);
 };
-const deleteProject = async (_, { projectId }) => {
+const DeleteProject = async (_, { projectId }) => {
     return services.deleteProject(projectId);
 };
 const client = async (parent) => {
@@ -55,16 +55,16 @@ const client = async (parent) => {
 };
 const projectResolvers = {
     Query: {
-        projects,
-        project,
+        Projects,
+        Project,
     },
     Project: {
         client
     },
     Mutation: {
-        addProject,
-        updateProject,
-        deleteProject
+        AddProject,
+        UpdateProject,
+        DeleteProject
     }
 };
 exports.default = projectResolvers;
