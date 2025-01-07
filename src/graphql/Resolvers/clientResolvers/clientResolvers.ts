@@ -1,5 +1,5 @@
 import * as services from '../../../services/clients/index'
-
+import { deleteProjectByClientId } from '../../../services/projects';
 const Clients = async (_: any, ) => {
     return await services.getAllClients()
 };
@@ -13,6 +13,7 @@ const AddClient = async (_: any, { input }) => {
 };
 
 const DeleteClient = async (_:any, { clientId } ) => {
+  await deleteProjectByClientId(clientId);
   return services.findClientAndDelete(clientId);
 };
 

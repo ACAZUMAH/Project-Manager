@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const projectsTypeDefs = `#graphql
     enum ProjectStatus {
-        NOT_STARTED
-        IN_PROGRESS
-        COMPLETED
+        Not_Started
+        In_Progress
+        Completed
     }
 
     type Project {

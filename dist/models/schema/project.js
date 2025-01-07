@@ -8,7 +8,11 @@ const projectsSchema = new mongoose_1.default.Schema({
     clientId: { type: mongoose_1.default.Types.ObjectId, ref: "clients" },
     name: { type: String },
     description: { type: String },
-    status: { type: String, enum: ["NOT_STARTED", "IN_PROGRESS", "COMPLETED"], default: "NOT_STARTED" },
+    status: {
+        type: String,
+        enum: ["Not_Started", "In_Progress", "Completed"],
+        default: "Not_Started",
+    },
 });
 const Project = mongoose_1.default.model('projects', projectsSchema);
 exports.default = Project;

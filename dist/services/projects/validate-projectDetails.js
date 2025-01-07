@@ -15,7 +15,7 @@ const validateProjectDetails = async (data) => {
             description: { type: 'string' },
             status: { type: 'string' }
         },
-        required: ['clientId', 'name', 'description', 'status']
+        required: ['clientId', 'name', 'description']
     };
     const validate = ajv.compile(schema);
     const isValid = validate(data);

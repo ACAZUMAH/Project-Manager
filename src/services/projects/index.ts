@@ -45,3 +45,11 @@ export const deleteProject = async (id: string | Types.ObjectId) => {
     if (!project) throw new createError.NotFound("project not found");
     return project;
 };
+
+export const deleteProjectByClientId = async (id: string |  Types.ObjectId) => {
+    if (!Types.ObjectId.isValid(id))
+        throw new createError.BadRequest("Invalid client id");
+    const project = await projects.findOneAndDelete({ clientId: id });
+    if (!project) throw new createError.NotFound("project not found");
+    return project;
+}

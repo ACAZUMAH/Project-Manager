@@ -31,9 +31,11 @@ const projectResolvers = {
         Projects,
         Project,
     },
+
     Project: {
         client
     },
+
     Mutation: {
         AddProject,
         UpdateProject,
